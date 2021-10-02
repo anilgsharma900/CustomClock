@@ -25,46 +25,50 @@ var timeZone = DateTime.now().timeZoneOffset.toString().split('.').first;
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Container(
-          alignment: Alignment.center,
-          color: Colors.white,
-          child:
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children:  [
-                      const Text(
-                        "Clock",
-                        style: TextStyle(color: Colors.black, fontSize: 24),
-                      ),
-                      const SizedBox(height: 20,),
-                      Text(
-                        time,
-                        style: const TextStyle(color: Colors.black, fontSize: 40),
-                      ),
-                      Text(
-                        formatedDate,
-                        style: const TextStyle(color: Colors.black, fontSize: 16),
-                      ),
-                       const ClockView(),
-
-                      const SizedBox(height: 40,),
-                      const Text(
-                        "Time Zone",
-                        style: TextStyle(color: Colors.black, fontSize: 40),
-                      ),
-                      Text(
-                        "UTC+ $timeZone",
-                        style: const TextStyle(color: Colors.black, fontSize: 16),
-                      ),
-                    ],
-                  ),
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Container(
+            alignment: Alignment.center,
+            color: Colors.white,
+            child: Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      "Clock",
+                      style: TextStyle(color: Colors.black, fontSize: 24),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      time,
+                      style: const TextStyle(color: Colors.black, fontSize: 40),
+                    ),
+                    Text(
+                      formatedDate,
+                      style: const TextStyle(color: Colors.black, fontSize: 16),
+                    ),
+                    const ClockView(),
+                    const SizedBox(
+                      height: 40,
+                    ),
+                    const Text(
+                      "Time Zone",
+                      style: TextStyle(color: Colors.black, fontSize: 40),
+                    ),
+                    Text(
+                      "UTC+ $timeZone",
+                      style: const TextStyle(color: Colors.black, fontSize: 16),
+                    ),
+                  ],
                 ),
               ),
-
+            ),
+          ),
         ),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
